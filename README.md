@@ -1,4 +1,4 @@
-# Santa Rosa de Lima JS🌸🌼🌹
+# Santa Rosa de Lima 🌸🌹
 El mes de la patrona de América y Filipinas. La animación representa la floreciente devoción, simbolizada por las rosas que aparecen en la pantalla. Es un homenaje visual para conmemorar su santidad y la influencia espiritual que ha tenido en tantas personas a lo largo de los siglos. 
 
 Esperamos que este proyecto te permita mejorar tus habilidades en SVG y JavaScript.
