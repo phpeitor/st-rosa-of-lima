@@ -1,15 +1,19 @@
 # Santa Rosa de Lima 🌸🌹
-El mes de la patrona de América y Filipinas. La animación representa la floreciente devoción, simbolizada por las rosas que aparecen en la pantalla. Es un homenaje visual para conmemorar su santidad y la influencia espiritual que ha tenido en tantas personas a lo largo de los siglos. 
+[![forthebadge](http://forthebadge.com/images/badges/made-with-css.svg)](https://www.linkedin.com/in/drphp/)
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](https://www.linkedin.com/in/drphp/)
 
-Esperamos que este proyecto te permita mejorar tus habilidades en SVG y JavaScript.
+Para utilizar este proyecto sigue estos pasos:
 
-Para utilizar este proyecto, sigue estos pasos:
+## 🚀 Quick Start
 
-- Clona este repositorio en tu máquina local utilizando el comando git clone [URL_del_repositorio].
-- Abre el archivo index.html en tu navegador web preferido.
-
+1. **Clonar este repositorio**
+```bash
+git clone https://github.com/phpeitor/st-rosa-of-lima.git
+cd st-rosa-of-lima
 ```
-    .\index.html
+2. **Ejecutar comando**
+```bash
+index.html
 ```
 
 [![Video](https://img.youtube.com/vi/WcdCLbTNFME/0.jpg)](https://www.youtube.com/watch?v=WcdCLbTNFME)  
