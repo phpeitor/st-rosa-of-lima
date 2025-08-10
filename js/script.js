@@ -9,7 +9,6 @@ function addHeart(){
 }
 
 function addRose() {
-  randomColor = Math.floor(Math.random() * 4);
   randomX = Math.floor(Math.random() * 100);
   randomY = Math.floor(Math.random() * 100);
   svg = `
@@ -19,7 +18,6 @@ function addRose() {
   $("body").append(svg);
 }
 
-
 function center(){
   $(".rose").css('-webkit-animation','show-heart 4s ease');
 }
@@ -27,7 +25,6 @@ function center(){
 function deletes(){
   $('.rose:lt(100)').remove();
 }
-
 
 setInterval(addRose,50);
 setInterval(center,200);
