@@ -80,15 +80,13 @@
 }
 h1 {
   position: absolute;
-  top: 55%;
+  top: 58%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 40px;
+  font-size: 30px;
   color: rgb(230, 221, 221);
 }
 
-
-/*LOGO*/
 .logo {
   width: 120px;
   position: relative;
@@ -120,4 +118,9 @@ h1 {
 }
 .box:hover {
   transform: translate(14%, 35%);
+}
+
+.script-letter {
+  font-family: 'Dancing Script', cursive;
+  color: #e63b3b;
 }
