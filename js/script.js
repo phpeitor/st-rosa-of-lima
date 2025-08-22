@@ -38,6 +38,19 @@ function deletes() {
   $('.heart:lt(100), .rose:lt(100)').remove();
 }
 
-setInterval(() => addElement("rose", 5, "rose"), 50);       
+const elements = ["rose", "heart"];
+
+function getRandomElement() {
+  return elements[Math.floor(Math.random() * elements.length)];
+}
+
+function getRandomNumber() {
+  return Math.floor(Math.random() * 5) + 1;
+}
+
+const shape = getRandomElement();
+const number = getRandomNumber();
+
+setInterval(() => addElement(shape, number, shape), 50);       
 setInterval(center, 200);
 setInterval(deletes, 8000);
