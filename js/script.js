@@ -22,7 +22,7 @@ function addElement(prefix, count, cssClass, useFill = false) {
     svg = `
       <svg style="top:${randomY}%; left:${randomX}%;" class="${cssClass}" 
         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54">
-        <image href="./img/${prefix}${randomVariant}.svg" x="0" y="0" height="54" width="54"/>
+        <image href="./resources/${prefix}${randomVariant}.svg" x="0" y="0" height="54" width="54"/>
       </svg>
     `;
   }

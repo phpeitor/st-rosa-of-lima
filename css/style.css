@@ -1,13 +1,3 @@
-.back {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: center center #22181e no-repeat;
-  background-size: cover;
-}
-
 #source-heart {
   width: 20px;
   height: 20px;
@@ -16,13 +6,25 @@
   top: 30px;
 }
 
+#video-background {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1; 
+	object-fit: cover;
+}
+
 #button {
   width: 100px;
   height: 100px;
   left: 50%;
   top: 50%;
   margin: -50px;
-  background: #22181e;
+  background: #e9e5e7;
   position: fixed;
   border-radius: 50px;
   box-sizing: border-box;
@@ -33,7 +35,7 @@
   font-size: 40px;
   cursor: pointer;
   z-index: 20;
-  box-shadow: 0 0 20px -5px #22181e;
+  box-shadow: 0 0 20px -5px #e9e5e7;
   overflow: hidden;
 }
 #button img {
