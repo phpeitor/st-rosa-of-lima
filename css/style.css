@@ -188,19 +188,16 @@ h1 {
   color: #e63b3b;
 }
 
-/* Capa que se recorta con el mismo SVG (sin inlinearlo) */
 .svg-shine{
   position: absolute;
-  /* mismas coordenadas que tu <img> para que calce el recorte */
   left: -30%;
   top: 0;
   width: 145%;
   height: 100%;
   pointer-events: none;
-  mix-blend-mode: screen;       /* se integra con el fondo */
+  mix-blend-mode: screen;
   opacity: .95;
 
-  /* Relleno animado (oro/rosa) */
   background:
     radial-gradient(120% 100% at 10% 0%, rgba(255,255,255,.9) 0 10%, transparent 40%),
     linear-gradient(120deg, #ffe7b3, #ffb58a 30%, #ff7a7a 55%, #ffd08a 80%, #fff1cc);
@@ -215,12 +212,10 @@ h1 {
           mask-repeat: no-repeat;
           mask-size: 100% 100%;
 
-  /* Glow extra */
   filter: drop-shadow(0 0 10px rgba(255, 217, 125, .6))
           drop-shadow(0 6px 22px rgba(226, 102, 59, .35));
 }
 
-/* “Chispitas” dentro del recorte */
 .svg-shine::after{
   content:"";
   position:absolute; inset:0;
@@ -233,7 +228,6 @@ h1 {
   mix-blend-mode: screen;
 }
 
-/* Animaciones */
 @keyframes goldshift{
   0%   { background-position: 0% 40%, 0% 60%; }
   50%  { background-position: 100% 60%, 100% 40%; }
