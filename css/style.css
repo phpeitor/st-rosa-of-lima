@@ -81,8 +81,8 @@
 
 .logo__img {
   filter:
-    drop-shadow(0 0 10px rgba(255, 214, 160, 0.8))
-    drop-shadow(0 4px 24px rgba(226, 102, 59, 0.45));
+    drop-shadow(0 0 10px rgba(250, 158, 37, 0.8))
+    drop-shadow(0 4px 24px rgba(241, 59, 59, 0.45));
   animation: float 6s ease-in-out infinite;
   transform-origin: 50% 60%;
   will-change: transform, filter;
@@ -137,6 +137,7 @@
     display: none;
   }
 }
+
 h1 {
   position: absolute;
   top: 58%;
@@ -151,6 +152,7 @@ h1 {
   position: relative;
   transform: rotate(-20deg) translate(50px, 100px);
 }
+
 .logo:before {
   content: "";
   display: block;
@@ -172,9 +174,11 @@ h1 {
   position: relative;
   transition: transform 0.4s;
 }
+
 .box img {
   width: 100%;
 }
+
 .box:hover {
   transform: translate(14%, 35%);
 }
@@ -182,4 +186,60 @@ h1 {
 .script-letter {
   font-family: 'Dancing Script', cursive;
   color: #e63b3b;
+}
+
+/* Capa que se recorta con el mismo SVG (sin inlinearlo) */
+.svg-shine{
+  position: absolute;
+  /* mismas coordenadas que tu <img> para que calce el recorte */
+  left: -30%;
+  top: 0;
+  width: 145%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;       /* se integra con el fondo */
+  opacity: .95;
+
+  /* Relleno animado (oro/rosa) */
+  background:
+    radial-gradient(120% 100% at 10% 0%, rgba(255,255,255,.9) 0 10%, transparent 40%),
+    linear-gradient(120deg, #ffe7b3, #ffb58a 30%, #ff7a7a 55%, #ffd08a 80%, #fff1cc);
+  background-size: 200% 200%, 300% 300%;
+  animation: goldshift 7s ease-in-out infinite;
+
+  /* Recorte usando la propia imagen del SVG */
+  -webkit-mask-image: url("./resources/st-rosa-of-lima.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+          mask-image: url("./resources/st-rosa-of-lima.svg");
+          mask-repeat: no-repeat;
+          mask-size: 100% 100%;
+
+  /* Glow extra */
+  filter: drop-shadow(0 0 10px rgba(255, 217, 125, .6))
+          drop-shadow(0 6px 22px rgba(226, 102, 59, .35));
+}
+
+/* “Chispitas” dentro del recorte */
+.svg-shine::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.95) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 35%, rgba(255,255,255,.7) 0 1.5px, transparent 3px),
+    radial-gradient(circle at 35% 70%, rgba(255,255,255,.9) 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 65%, rgba(255,255,255,.8) 0 1.6px, transparent 3px);
+  animation: twinkle 2.8s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+/* Animaciones */
+@keyframes goldshift{
+  0%   { background-position: 0% 40%, 0% 60%; }
+  50%  { background-position: 100% 60%, 100% 40%; }
+  100% { background-position: 0% 40%, 0% 60%; }
+}
+@keyframes twinkle{
+  0%,100%{ opacity:.2; transform: translateY(0); }
+  50%    { opacity:.9; transform: translateY(-2px) scale(1.02); }
 }

@@ -54,6 +54,6 @@ document.getElementById("randomLogo").src = logoPath;
 
 const shape = getRandomElement();
 const number = getRandomNumber();
-setInterval(() => addElement(shape, number, shape), 50);       
+setInterval(() => addElement(shape, number, shape, false), 50);       
 setInterval(center, 200);
 setInterval(deletes, 8000);
