@@ -48,9 +48,12 @@ function getRandomNumber() {
   return Math.floor(Math.random() * 5) + 1;
 }
 
+const num = Math.floor(Math.random() * 3) + 1;
+const logoPath = `./resources/logo0${num}.png`;
+document.getElementById("randomLogo").src = logoPath;
+
 const shape = getRandomElement();
 const number = getRandomNumber();
-
 setInterval(() => addElement(shape, number, shape), 50);       
 setInterval(center, 200);
 setInterval(deletes, 8000);
