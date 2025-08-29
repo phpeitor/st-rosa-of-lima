@@ -197,14 +197,11 @@ h1 {
   pointer-events: none;
   mix-blend-mode: screen;
   opacity: .95;
-
   background:
     radial-gradient(120% 100% at 10% 0%, rgba(255,255,255,.9) 0 10%, transparent 40%),
     linear-gradient(120deg, #ffe7b3, #ffb58a 30%, #ff7a7a 55%, #ffd08a 80%, #fff1cc);
   background-size: 200% 200%, 300% 300%;
   animation: goldshift 7s ease-in-out infinite;
-
-  /* Recorte usando la propia imagen del SVG */
   -webkit-mask-image: url("./resources/st-rosa-of-lima.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
