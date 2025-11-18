@@ -1,5 +1,5 @@
 # Santa Rosa de Lima 🌸🌹
-[![forthebadge](http://forthebadge.com/images/badges/made-with-css.svg)](https://www.linkedin.com/in/drphp/)
+[![forthebadge](http://forthebadge.com/images/badges/uses-css.svg)](https://www.linkedin.com/in/drphp/)
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](https://www.linkedin.com/in/drphp/)
 
 Para utilizar este proyecto sigue estos pasos:
