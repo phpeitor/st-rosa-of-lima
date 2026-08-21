@@ -1,7 +1,8 @@
 const colors = ['#f9a363','#8c1346','#d13d3c','#e2663b'];
 
 function addElement(prefix, count, cssClass, useFill = false) {
-  const randomVariant = Math.floor(Math.random() * count) + 1; 
+	const variantCount = prefix === "petal" ? 4 : count;
+	const randomVariant = Math.floor(Math.random() * variantCount) + 1; 
   const randomColor = Math.floor(Math.random() * colors.length);
   const randomX = Math.floor(Math.random() * 100);
   const randomY = Math.floor(Math.random() * 100);
@@ -19,12 +20,8 @@ function addElement(prefix, count, cssClass, useFill = false) {
       </svg>
     `;
   } else {
-    svg = `
-      <svg style="top:${randomY}%; left:${randomX}%;" class="${cssClass}" 
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 54">
-        <image href="./resources/${prefix}${randomVariant}.svg" x="0" y="0" height="54" width="54"/>
-      </svg>
-    `;
+		const extension = prefix === "petal" ? "png" : "svg";
+		svg = `<img style="top:${randomY}%; left:${randomX}%; --petal-rotate:${Math.floor(Math.random() * 80) - 40}deg;" class="${cssClass}" src="./resources/${prefix}${randomVariant}.${extension}" alt="" aria-hidden="true">`;
   }
 
   $("body").append(svg);
@@ -35,10 +32,10 @@ function center() {
 }
 
 function deletes() {
-  $('.heart:lt(100), .rose:lt(100)').remove();
+	$('.heart:lt(100), .rose:lt(100), .petal:lt(100)').remove();
 }
 
-const elements = ["rose", "heart"];
+const elements = ["rose", "heart", "petal"];
 
 function getRandomElement() {
   return elements[Math.floor(Math.random() * elements.length)];
@@ -113,7 +110,7 @@ function openImageLightbox(imageSrc, imageAlt, triggerElement) {
 	document.addEventListener("keydown", onKey);
 }
 
-let selectedEffect = "random";
+let selectedEffect = "petal";
 
 function getSelectedEffect() {
 	return selectedEffect === "random" ? getRandomElement() : selectedEffect;
@@ -150,6 +147,6 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matc
 setInterval(() => {
 	const effect = getSelectedEffect();
 	addElement(effect, number, effect, false);
-}, reducedMotion ? 220 : 50);
+}, reducedMotion ? 260 : 90);
 setInterval(center, 200);
 setInterval(deletes, 8000);

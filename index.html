@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Sta Rosa of Lima</title>
@@ -41,7 +41,10 @@
 <div class="effect-widget" aria-label="Selector de efectos decorativos">
 	<span class="effect-widget__title">Efectos</span>
 	<div class="effect-widget__buttons" role="group" aria-label="Elegir efecto">
-		<button class="effect-button effect-button--active" type="button" data-effect="random" aria-pressed="true" title="Efecto aleatorio">
+		<button class="effect-button effect-button--active" type="button" data-effect="petal" aria-pressed="true" title="Mostrar petalos">
+			<span aria-hidden="true">✿</span><span>Petalos</span>
+		</button>
+		<button class="effect-button" type="button" data-effect="random" aria-pressed="false" title="Efecto aleatorio">
 			<span aria-hidden="true">✦</span><span>Aleatorio</span>
 		</button>
 		<button class="effect-button" type="button" data-effect="rose" aria-pressed="false" title="Mostrar rosas">
@@ -52,6 +55,35 @@
 		</button>
 	</div>
 </div>
+
+<main class="story">
+	<section class="timeline" aria-labelledby="timeline-title">
+		<p class="timeline__eyebrow">Una vida que florece</p>
+		<h2 id="timeline-title">Camino de Santa Rosa</h2>
+		<div class="timeline__track">
+			<article class="timeline__item">
+				<div class="timeline__marker" aria-hidden="true">🌹</div>
+				<div class="timeline__card"><time datetime="1586">1586</time><h3>Nace en Lima</h3><p>En la ciudad de Lima comienza la historia de Isabel Flores de Oliva.</p></div>
+			</article>
+			<article class="timeline__item">
+				<div class="timeline__marker" aria-hidden="true">🕊️</div>
+				<div class="timeline__card"><span class="timeline__label">Infancia</span><h3>Recibe el nombre de Rosa por su belleza</h3></div>
+			</article>
+			<article class="timeline__item">
+				<div class="timeline__marker" aria-hidden="true">🤍</div>
+				<div class="timeline__card"><span class="timeline__label">Vida de servicio</span><h3>Oracion y ayuda a los necesitados</h3><p>Dedica su vida a la oracion y a ayudar a los enfermos y necesitados.</p></div>
+			</article>
+			<article class="timeline__item">
+				<div class="timeline__marker" aria-hidden="true">🕯️</div>
+				<div class="timeline__card"><time datetime="1617">1617</time><h3>Fallece en Lima</h3></div>
+			</article>
+			<article class="timeline__item">
+				<div class="timeline__marker" aria-hidden="true">✨</div>
+				<div class="timeline__card"><time datetime="1671">1671</time><h3>Primera santa de America</h3><p>Es canonizada y se convierte en la primera santa de America.</p></div>
+			</article>
+		</div>
+	</section>
+</main>
 
 <script src="./js/jquery.min.js"></script>
 <script src="./js/script.js?v=1"></script>
