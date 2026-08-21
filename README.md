@@ -20,15 +20,43 @@ Landing conmemorativa e interactiva dedicada a Santa Rosa de Lima. La experienci
 
 ## Requisitos
 
-- Apache 2.4 o cualquier servidor HTTP estático.
-- Navegador moderno con soporte para HTML5, CSS3, SVG y JavaScript.
+- Un navegador moderno con soporte para HTML5, CSS3, SVG y JavaScript.
+- Opcionalmente, cualquier servidor HTTP estático para probar el proyecto con rutas relativas.
 - Node.js únicamente si se desea ejecutar la validación sintáctica del script.
 
 ## Ejecución local
 
-### Apache
+El proyecto no requiere Apache, Node.js ni un proceso de compilación para funcionar.
 
-Coloca el proyecto dentro del `DocumentRoot` de Apache y abre:
+### Opción 1: abrir el HTML
+
+Abre `index.html` directamente en el navegador. Esta opción es suficiente para una revisión rápida de la interfaz.
+
+Algunos navegadores pueden restringir recursos locales por políticas de seguridad. Si el video, las imágenes o los SVG no cargan correctamente, utiliza una de las opciones con servidor local.
+
+### Opción 2: servidor local con Python
+
+Si tienes Python instalado, ejecuta desde la raíz del proyecto:
+
+```bash
+python -m http.server 8000
+```
+
+Después abre:
+
+```text
+http://localhost:8000/
+```
+
+En Windows también puede ser necesario utilizar `py`:
+
+```bash
+py -m http.server 8000
+```
+
+### Opción 3: Apache
+
+Si ya utilizas Apache, coloca el proyecto dentro de su `DocumentRoot` y abre:
 
 ```text
 http://localhost/st-rosa-of-lima/
@@ -40,7 +68,7 @@ En una instalación de Apache para Windows, la ruta habitual es:
 C:\Apache24\htdocs\st-rosa-of-lima
 ```
 
-También puede abrirse `index.html` directamente en un navegador, aunque Apache es la opción recomendada para comprobar correctamente las rutas relativas de los recursos.
+Apache es una alternativa válida, pero no es un requisito del proyecto.
 
 ### Validación de JavaScript
 
