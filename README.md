@@ -18,6 +18,3 @@ index.html
 
 [![Video](https://img.youtube.com/vi/WcdCLbTNFME/0.jpg)](https://www.youtube.com/watch?v=WcdCLbTNFME)  
 [Ver demo?v1.0](https://www.youtube.com/watch?v=WcdCLbTNFME)
-
-[![Video](https://img.youtube.com/vi/-esgapfc4MA/0.jpg)](https://www.youtube.com/watch?v=-esgapfc4MA)  
-[Ver demo?v1.5](https://www.youtube.com/watch?v=-esgapfc4MA)
