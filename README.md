@@ -15,6 +15,3 @@ cd st-rosa-of-lima
 ```bash
 index.html
 ```
-
-[![Video](https://img.youtube.com/vi/WcdCLbTNFME/0.jpg)](https://www.youtube.com/watch?v=WcdCLbTNFME)  
-[Ver demo?v1.0](https://www.youtube.com/watch?v=WcdCLbTNFME)

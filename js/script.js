@@ -113,8 +113,42 @@ function openImageLightbox(imageSrc, imageAlt, triggerElement) {
 	document.addEventListener("keydown", onKey);
 }
 
-const shape = getRandomElement();
+let selectedEffect = "random";
+
+function getSelectedEffect() {
+	return selectedEffect === "random" ? getRandomElement() : selectedEffect;
+}
+
+function setSelectedEffect(effect, button) {
+	selectedEffect = effect;
+	document.querySelectorAll(".effect-button").forEach(function (effectButton) {
+		const isActive = effectButton === button;
+		effectButton.classList.toggle("effect-button--active", isActive);
+		effectButton.setAttribute("aria-pressed", String(isActive));
+	});
+}
+
+const logoTrigger = document.querySelector(".logo");
+logoTrigger.addEventListener("click", function () {
+	openImageLightbox("./resources/logo.webp", "Emblema de Santa Rosa de Lima", logoTrigger);
+});
+logoTrigger.addEventListener("keydown", function (event) {
+	if (event.key === "Enter" || event.key === " ") {
+		event.preventDefault();
+		logoTrigger.click();
+	}
+});
+
+document.querySelectorAll(".effect-button").forEach(function (button) {
+	button.addEventListener("click", function () {
+		setSelectedEffect(button.dataset.effect, button);
+	});
+});
+
 const number = getRandomNumber();
-setInterval(() => addElement(shape, number, shape, false), 50);       
+setInterval(() => {
+	const effect = getSelectedEffect();
+	addElement(effect, number, effect, false);
+}, 50);
 setInterval(center, 200);
 setInterval(deletes, 8000);
