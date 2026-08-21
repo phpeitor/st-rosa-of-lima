@@ -125,6 +125,32 @@ function setSelectedEffect(effect, button) {
 	});
 }
 
+function celebrateCenter() {
+	const centerButton = document.querySelector("#button");
+	centerButton.classList.remove("button--celebrating");
+	void centerButton.offsetWidth;
+	centerButton.classList.add("button--celebrating");
+
+	for (let index = 0; index < 12; index += 1) {
+		const angle = (Math.PI * 2 * index) / 12;
+		const petal = document.createElement("img");
+		petal.className = "petal petal--burst";
+		petal.src = `./resources/petal${Math.floor(Math.random() * 4) + 1}.png`;
+		petal.alt = "";
+		petal.setAttribute("aria-hidden", "true");
+		petal.style.left = "50%";
+		petal.style.top = "50%";
+		petal.style.setProperty("--burst-x", `${Math.cos(angle) * 260}px`);
+		petal.style.setProperty("--burst-y", `${Math.sin(angle) * 260}px`);
+		document.body.appendChild(petal);
+		window.setTimeout(() => petal.remove(), 1200);
+	}
+
+	window.setTimeout(() => {
+		document.querySelector(".timeline").scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+	}, 460);
+}
+
 const logoTrigger = document.querySelector(".logo");
 logoTrigger.addEventListener("click", function () {
 	openImageLightbox("./resources/logo.webp", "Emblema de Santa Rosa de Lima", logoTrigger);
@@ -133,6 +159,15 @@ logoTrigger.addEventListener("keydown", function (event) {
 	if (event.key === "Enter" || event.key === " ") {
 		event.preventDefault();
 		logoTrigger.click();
+	}
+});
+
+const centerButton = document.querySelector("#button");
+centerButton.addEventListener("click", celebrateCenter);
+centerButton.addEventListener("keydown", function (event) {
+	if (event.key === "Enter" || event.key === " ") {
+		event.preventDefault();
+		celebrateCenter();
 	}
 });
 
