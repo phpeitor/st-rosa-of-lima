@@ -146,9 +146,10 @@ document.querySelectorAll(".effect-button").forEach(function (button) {
 });
 
 const number = getRandomNumber();
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 setInterval(() => {
 	const effect = getSelectedEffect();
 	addElement(effect, number, effect, false);
-}, 50);
+}, reducedMotion ? 220 : 50);
 setInterval(center, 200);
 setInterval(deletes, 8000);

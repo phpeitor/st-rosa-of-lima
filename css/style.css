@@ -37,6 +37,7 @@
   z-index: 20;
   box-shadow: 0 0 20px -5px #e9e5e7;
   overflow: hidden;
+  isolation: isolate;
 }
 
 #button::before {
@@ -47,7 +48,7 @@
   background: radial-gradient(closest-side, rgba(241, 210, 7, 0.55), rgba(226, 102, 59, 0.15) 60%, transparent 70%);
   filter: blur(2px);
   animation: pulse 2.6s ease-in-out infinite;
-  z-index: -1;
+  z-index: 0;
 }
 
 #button::after {
@@ -62,6 +63,7 @@
   mix-blend-mode: screen;
   pointer-events: none;
   animation: sweep 3.8s linear infinite;
+  z-index: 4;
 }
 
 #button img {
@@ -69,6 +71,7 @@
   left: -30%;
   top: 0;
   width: 145%;
+  z-index: 1;
 }
 #button svg {
   width: 50%;
@@ -77,6 +80,8 @@
   top: 50%;
   position: absolute;
   transform: translateX(-50%) translateY(-45%);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .logo__img {
@@ -336,22 +341,24 @@ h1 {
   width: 145%;
   height: 100%;
   pointer-events: none;
+  z-index: 2;
   mix-blend-mode: screen;
-  opacity: .95;
+  opacity: .62;
+  overflow: hidden;
   background:
-    radial-gradient(120% 100% at 10% 0%, rgba(255,255,255,.9) 0 10%, transparent 40%),
-    linear-gradient(120deg, #ffe7b3, #ffb58a 30%, #ff7a7a 55%, #ffd08a 80%, #fff1cc);
-  background-size: 200% 200%, 300% 300%;
-  animation: goldshift 7s ease-in-out infinite;
-  -webkit-mask-image: url("./resources/st-rosa-of-lima.svg");
+    linear-gradient(115deg, transparent 0 38%, rgba(255,255,255,.08) 43%, rgba(255,244,201,.95) 49%, rgba(255,179,104,.28) 54%, transparent 60%),
+    linear-gradient(135deg, #ffe7b3, #ffb58a 34%, #ff7a7a 58%, #ffd08a 80%, #fff1cc);
+  background-size: 280% 100%, 220% 220%;
+  animation: logo-shine 5.8s ease-in-out infinite;
+  -webkit-mask-image: url("../resources/st-rosa-of-lima.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
-          mask-image: url("./resources/st-rosa-of-lima.svg");
+          mask-image: url("../resources/st-rosa-of-lima.svg");
           mask-repeat: no-repeat;
           mask-size: 100% 100%;
 
   filter: drop-shadow(0 0 10px rgba(255, 217, 125, .6))
-          drop-shadow(0 6px 22px rgba(226, 102, 59, .35));
+      drop-shadow(0 4px 14px rgba(226, 102, 59, .22));
 }
 
 .svg-shine::after{
@@ -362,16 +369,28 @@ h1 {
     radial-gradient(circle at 70% 35%, rgba(255,255,255,.7) 0 1.5px, transparent 3px),
     radial-gradient(circle at 35% 70%, rgba(255,255,255,.9) 0 2px, transparent 3px),
     radial-gradient(circle at 85% 65%, rgba(255,255,255,.8) 0 1.6px, transparent 3px);
-  animation: twinkle 2.8s ease-in-out infinite;
+  animation: twinkle 3.6s ease-in-out infinite;
   mix-blend-mode: screen;
 }
 
-@keyframes goldshift{
-  0%   { background-position: 0% 40%, 0% 60%; }
-  50%  { background-position: 100% 60%, 100% 40%; }
-  100% { background-position: 0% 40%, 0% 60%; }
+@keyframes logo-shine{
+  0%, 18% { background-position: -120% 0, 0% 60%; }
+  52%, 72% { background-position: 120% 0, 100% 40%; }
+  100% { background-position: 120% 0, 0% 60%; }
 }
 @keyframes twinkle{
   0%,100%{ opacity:.2; transform: translateY(0); }
   50%    { opacity:.9; transform: translateY(-2px) scale(1.02); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #button::before,
+  #button::after,
+  .logo__img,
+  .svg-shine,
+  .svg-shine::after,
+  .box {
+    animation: none;
+    transition: none;
+  }
 }
