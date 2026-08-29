@@ -207,6 +207,22 @@ centerButton.addEventListener("keydown", function (event) {
 });
 
 document.querySelectorAll(".effect-button").forEach(function (button) {
+	const tooltipText = button.dataset.tippyContent || button.getAttribute("title") || button.textContent.trim();
+	button.removeAttribute("title");
+
+	if (typeof tippy !== "undefined") {
+		tippy(button, {
+			content: tooltipText,
+			placement: "top",
+			animation: "shift-away",
+			theme: "light",
+			arrow: true,
+			duration: 180,
+			interactive: false,
+			delay: [120, 80],
+		});
+	}
+
 	button.addEventListener("click", function () {
 		setSelectedEffect(button.dataset.effect, button);
 	});
