@@ -68,9 +68,9 @@
 
 #button img {
   position: absolute;
-  left: -18%;
-  top: -4%;
-  width: 136%;
+  left: 0%;
+  top: 0%;
+  width: 120%;
   z-index: 1;
 }
 #button svg {
@@ -301,7 +301,7 @@ h1 {
 
 .script-letter {
   font-family: 'Dancing Script', cursive;
-  color: #e63b3b;
+  color: #ffa899;
 }
 
 .effect-widget {
@@ -499,10 +499,10 @@ h1 {
     linear-gradient(135deg, #ffe7b3, #ffb58a 34%, #ff7a7a 58%, #ffd08a 80%, #fff1cc);
   background-size: 280% 100%, 220% 220%;
   animation: logo-shine 5.8s ease-in-out infinite;
-  -webkit-mask-image: url("../resources/st-rosa-of-lima.svg");
+  -webkit-mask-image: url("../resources/st-rosa-of-lima.png");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
-          mask-image: url("../resources/st-rosa-of-lima.svg");
+          mask-image: url("../resources/st-rosa-of-lima.png");
           mask-repeat: no-repeat;
           mask-size: 100% 100%;
 
