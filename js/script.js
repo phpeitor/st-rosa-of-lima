@@ -113,6 +113,25 @@ function openImageLightbox(imageSrc, imageAlt, triggerElement) {
 
 let selectedEffect = "petal";
 
+function getBackgroundVideoSource(effectName) {
+	return effectName === "petal" ? "./resources/main.mp4" : "./resources/video.mp4";
+}
+
+function updateBackgroundVideo(effectName) {
+	const video = document.getElementById("video-background");
+	if (!video) return;
+
+	const source = video.querySelector("source");
+	if (!source) return;
+
+	const nextSource = getBackgroundVideoSource(effectName);
+	if (source.getAttribute("src") === nextSource) return;
+
+	source.src = nextSource;
+	video.load();
+	video.play().catch(function () {});
+}
+
 function getSelectedEffect() {
 	return selectedEffect === "random" ? getRandomElement() : selectedEffect;
 }
@@ -124,6 +143,7 @@ function setSelectedEffect(effect, button) {
 		effectButton.classList.toggle("effect-button--active", isActive);
 		effectButton.setAttribute("aria-pressed", String(isActive));
 	});
+	updateBackgroundVideo(effect === "petal" ? "petal" : effect);
 }
 
 function celebrateCenter() {
@@ -194,6 +214,7 @@ document.querySelectorAll(".effect-button").forEach(function (button) {
 
 const number = getRandomNumber();
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+updateBackgroundVideo(getSelectedEffect());
 setInterval(() => {
 	const effect = getSelectedEffect();
 	addElement(effect, number, effect, false);
