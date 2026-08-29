@@ -165,6 +165,19 @@ logoTrigger.addEventListener("keydown", function (event) {
 });
 
 const centerButton = document.querySelector("#button");
+
+if (typeof tippy !== "undefined") {
+	tippy(centerButton, {
+		content: "Descubrir su historia",
+		placement: "top",
+		animation: "shift-away",
+		theme: "light",
+		arrow: true,
+		duration: 180,
+		interactive: false,
+	});
+}
+
 centerButton.addEventListener("click", celebrateCenter);
 centerButton.addEventListener("keydown", function (event) {
 	if (event.key === "Enter" || event.key === " ") {

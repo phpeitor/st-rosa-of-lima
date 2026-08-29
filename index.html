@@ -5,6 +5,7 @@
   <title>Sta Rosa of Lima</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='75'>🌹</text></svg>" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy.css" />
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
@@ -20,8 +21,7 @@
 	</div>
 </div>
 
-<div id="button" role="button" tabindex="0" aria-label="Descubrir la historia de Santa Rosa de Lima" data-tooltip="Descubrir su historia">
-	<span class="button-tooltip" aria-hidden="true">Descubrir su historia</span>
+<div id="button" role="button" tabindex="0" aria-label="Descubrir la historia de Santa Rosa de Lima" data-tippy-content="Descubrir su historia">
 	<img class="logo__img" src="./resources/st-rosa-of-lima.png" alt="Sta Rosa of Lima" />
 	<span class="svg-shine" aria-hidden="true"></span>
 	<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -87,6 +87,8 @@
 </main>
 
 <script src="./js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy-bundle.umd.min.js"></script>
 <script src="./js/script.js?v=1"></script>
 </body>
 </html>
