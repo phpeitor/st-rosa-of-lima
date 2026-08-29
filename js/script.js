@@ -21,7 +21,8 @@ function addElement(prefix, count, cssClass, useFill = false) {
     `;
   } else {
 		const extension = prefix === "petal" ? "png" : "svg";
-		svg = `<img style="top:${randomY}%; left:${randomX}%; --petal-rotate:${Math.floor(Math.random() * 80) - 40}deg;" class="${cssClass}" src="./resources/${prefix}${randomVariant}.${extension}" alt="" aria-hidden="true">`;
+		const driftX = (Math.random() - 0.5) * 110;
+		svg = `<img style="top:${randomY}%; left:${randomX}%; --petal-rotate:${Math.floor(Math.random() * 80) - 40}deg; --petal-drift:${driftX}px;" class="${cssClass}" src="./resources/${prefix}${randomVariant}.${extension}" alt="" aria-hidden="true">`;
   }
 
   $("body").append(svg);
@@ -142,6 +143,7 @@ function celebrateCenter() {
 		petal.style.top = "50%";
 		petal.style.setProperty("--burst-x", `${Math.cos(angle) * 260}px`);
 		petal.style.setProperty("--burst-y", `${Math.sin(angle) * 260}px`);
+		petal.style.setProperty("--petal-drift", `${(Math.random() - 0.5) * 90}px`);
 		document.body.appendChild(petal);
 		window.setTimeout(() => petal.remove(), 1200);
 	}

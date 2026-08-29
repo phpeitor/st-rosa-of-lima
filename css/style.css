@@ -51,6 +51,48 @@
   z-index: 0;
 }
 
+#button .button-tooltip {
+  position: absolute;
+  left: 50%;
+  top: -12px;
+  transform: translate(-50%, -100%) translateY(8px);
+  min-width: max-content;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(41, 16, 22, 0.82);
+  color: #fff7ed;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 219, 169, 0.38);
+  box-shadow: 0 12px 24px rgba(41, 16, 22, 0.28), 0 0 0 1px rgba(255, 222, 171, 0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 60;
+}
+
+#button .button-tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: rgba(41, 16, 22, 0.82);
+  border-right: 1px solid rgba(255, 219, 169, 0.38);
+  border-bottom: 1px solid rgba(255, 219, 169, 0.38);
+}
+
+#button:hover .button-tooltip,
+#button:focus-visible .button-tooltip,
+#button:focus .button-tooltip {
+  opacity: 1;
+  transform: translate(-50%, -100%) translateY(0);
+}
+
 #button::after {
   content: "";
   position: absolute;
@@ -148,7 +190,9 @@
   opacity: 0;
   object-fit: contain;
   filter: drop-shadow(0 3px 5px rgba(52, 12, 21, .35));
-  animation: petal-fall 7s linear forwards;
+  transform-origin: center;
+  will-change: transform, opacity, filter;
+  animation: petal-fall 8s cubic-bezier(.22, .68, .2, 1) forwards;
 }
 
 .petal--burst {
@@ -164,10 +208,29 @@
 }
 
 @keyframes petal-fall {
-  0% { opacity: 0; transform: translate3d(-10px, -12vh, 0) rotate(0deg) scale(.8); }
-  12% { opacity: .9; }
-  52% { opacity: .82; }
-  100% { opacity: 0; transform: translate3d(72px, 112vh, 0) rotate(var(--petal-rotate)) scale(1.05); }
+  0% {
+    opacity: 0;
+    transform: translate3d(-18px, -14vh, 0) rotate(0deg) scale(0.72);
+  }
+  12% {
+    opacity: 0.9;
+  }
+  25% {
+    opacity: 0.82;
+    transform: translate3d(26px, 8vh, 0) rotate(20deg) scale(0.9);
+  }
+  48% {
+    opacity: 0.8;
+    transform: translate3d(58px, 42vh, 0) rotate(calc(var(--petal-rotate) * 0.7)) scale(0.98);
+  }
+  72% {
+    opacity: 0.68;
+    transform: translate3d(92px, 72vh, 0) rotate(var(--petal-rotate)) scale(1.04);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(68px + var(--petal-drift, 0px)), 112vh, 0) rotate(calc(var(--petal-rotate) * 1.65)) scale(1.08);
+  }
 }
 
 @keyframes show-heart {
